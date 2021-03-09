@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { newBar } = require("../controllers/BarsController");
+const { newBar, getBars } = require("../controllers/BarsController");
 
 router.post("/", newBar);
-// router.get("/testNew", newBar);
+router.get("/", getBars);
 
 module.exports = router;
