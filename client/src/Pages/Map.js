@@ -3,7 +3,7 @@ import React from "react";
 const Map = () => {
   return (
     <div>
-      <h>Hello from Map Page</h>
+      <h1>Hello from Map Page</h1>
     </div>
   );
 };
