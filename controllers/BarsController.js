@@ -1,19 +1,22 @@
 const db = require("../models");
 
 module.exports = {
-  // newBar: async (req, res) => {
-  //   console.log("got new ones?");
-  //   try {
-  //     const newBar = new Bar({
-  //       name: req.body.barName,
-  //     });
+  newBar: function (req, res) {
+    db.Bar.create(req.body)
+      .then((dbmodel) => res.json(dbmodel))
+      .catch((err) => res.status(422).json(err));
+    // console.log("got new ones?");
+    // try {
+    //   const newBar = new Bar({
+    //     name: req.body.barName,
+    //   });
 
-  //     const successSave = await newBar.save();
-  //     res.json(successSave);
-  //   } catch (err) {
-  //     res.status(400).send({ msg: "not found" });
-  //   }
-  // },
+    //   const successSave = await newBar.save();
+    //   res.json(successSave);
+    // } catch (err) {
+    //   res.status(400).send({ msg: "not found" });
+    // }
+  },
   getBars: function (req, res) {
     db.Bar.find({}, (err, found) => {
       if (err) {
