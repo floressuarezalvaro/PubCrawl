@@ -19,18 +19,14 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
-mongoose.connect(
-  process.env.MONGO_URI || "mongodb://localhost/PubCrawl",
-  {
+mongoose
+  .connect(process.env.MONGO_URI || "mongodb://localhost/PubCrawl", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: true,
-  },
-  (err) => {
-    if (err) throw err;
-    console.log("connected to mongodb");
-  }
-);
+  })
+  .then(() => console.log("MongoDB is connected"))
+  .catch((err) => console.log(err));
 
 app.listen(PORT, () => console.log(`connected to http://localhost:${PORT}`));
