@@ -8,4 +8,6 @@ const barSchema = new Schema({
   },
 });
 
-module.exports = Bar = mongoose.model("bar", barSchema);
+const Bar = mongoose.model("Bar", barSchema);
+
+module.exports = Bar;
