@@ -10,10 +10,13 @@ useEffect(() => {
 if(!userData.user) history.push("/login");
 }, [userData.user, history])
 
+
+
   return (
     <div>
       <h1>Hello from Home Page</h1>
-      <button onClick={props.logout}>Logout</button>
+      <h3>Hello {userData.user?.displayName}</h3>
+      <button onClick={() => history.push("/search")} className="btn btn-outline-primary">Submit</button>
     </div>
   );
 };
