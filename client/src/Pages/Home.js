@@ -10,8 +10,6 @@ useEffect(() => {
 if(!userData.user) history.push("/login");
 }, [userData.user, history])
 
-
-
   return (
     <div>
       <h1>Hello from Home Page</h1>
