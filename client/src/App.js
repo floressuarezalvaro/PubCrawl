@@ -10,7 +10,7 @@ import Itinerary from "./Pages/Itinerary";
 import SavedPubCrawls from "./Pages/SavedPubCrawls";
 import Map from "./Pages/Map";
 import Home from "./Pages/Home";
-import UserContext from "./context/UserContext";
+import UserContext from "./Context/UserContext";
 
 function App() {
   const [userData, setUserData] = useState({
