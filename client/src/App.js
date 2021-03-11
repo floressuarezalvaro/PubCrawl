@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Profiler, useEffect, useState } from "react";
+import axios from "axios";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Landing from "./Pages/Landing";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
@@ -10,7 +11,6 @@ import SavedPubCrawls from "./Pages/SavedPubCrawls";
 import Map from "./Pages/Map";
 import Home from "./Pages/Home";
 import UserContext from "./Context/UserContext"
-import axios from "axios";
 
 function App() {
   
@@ -25,13 +25,16 @@ function App() {
     if (token === null) {
       localStorage.setItem("auth-token", "");
     } else {
-      const userRes = await axios.get("/users", {headers: {"x-auth-token": token},
-     });
 
-    console.log("User", userRes);
+      try{  
+        const userRes = await axios.get("/users", {
+        headers: { "x-auth-token": token },
+      });
 
-setUserData({ token, user: userRes.data });
-
+      setUserData({ token, user: userRes.data });
+    }catch(err){
+      console.log("User must login");
+      }
     }
   };
 
@@ -48,6 +51,16 @@ const logout = async () => {
   return (
     <div className="App">
       <Router>
+        {!userData.user ? (
+          <>
+            <Link to="/login">Login</Link> <Link to="/register">Register</Link>
+          </>
+        ) : (
+          <Link to="/" onClick={logout}>
+            Logout
+          </Link>
+        )}
+
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
             <Route path="/landing" component={Landing} />
@@ -59,7 +72,7 @@ const logout = async () => {
             <Route path="/savedpubcrawls" component={SavedPubCrawls} />
             <Route path="/map" component={Map} />
             <Route path="/">
-              <Home logout={logout}/>
+              <Home component={Home} />
             </Route>
           </Switch>
         </UserContext.Provider>
