@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
-import UserContext from "../Context/UserContext";
-import {useHistory} from "react-router-dom";
-import axios from "axios"
+import UserContext from "../context/UserContext";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   const [form, setForm] = useState();
-  const { userData, setUserData} = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
 
   const onChange = (e) => {
@@ -14,7 +14,7 @@ const Login = () => {
 
   const submitLoginForm = async (e) => {
     e.preventDefault();
-    try{
+    try {
       const { data } = await axios.post("/users/login", form);
 
       setUserData({
@@ -23,24 +23,23 @@ const Login = () => {
       });
 
       localStorage.setItem("auth-token", data.token);
-      history.push("/")
-    }catch(err){
-      console.log(err.response)
+      history.push("/");
+    } catch (err) {
+      console.log(err.response);
     }
   };
 
-
   useEffect(() => {
-    if(userData.user) history.push("/");
+    if (userData.user) history.push("/");
   }, [userData.user, history]);
 
   return (
     <div>
-      <form onSubmit={submitLoginForm}>
+      <form className="container" onSubmit={submitLoginForm}>
         <label>Email</label>
         <input onChange={onChange} type="text" name="email" />
         <label>Password</label>
-        <input onChange={onChange}  type="text" name="password" />
+        <input onChange={onChange} type="text" name="password" />
         <input type="submit" />
       </form>
     </div>
