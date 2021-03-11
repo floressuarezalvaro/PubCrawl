@@ -13,9 +13,11 @@ const auth = (req, res, next) => {
       return res.status(401).json({ msg: "Token verification failed" });
     }
 
-    req.user = verified.indexOf;
+    req.user = verified.id;
     next();
-  } catch (err) {}
+  } catch (err) {
+
+  }
 };
 
 module.exports = auth;
