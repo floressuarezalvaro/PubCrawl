@@ -10,22 +10,27 @@ const Cards = () => {
 
   return (
     <div>
-      <div className="row">
-        <div className="col s12 m6">
-          <div className="card">
-            <div className="card-image">
-              {/* <img src="images/sample-1.jpg" /> */}
-              <span className="card-title">Card Title</span>
-              <a className="btn-floating halfway-fab waves-effect waves-light red">
+      <div className="row" id="barList">
+        <div className="col s12 m6 l4">
+          <div className="card grey lighten-5">
+            <div className="card-content grey-text">
+              <p className="#bar-name">bar name</p>
+              <p className="#city-name">city name</p>
+              <p className="#state">state</p>
+              <div className="card-action"></div>
+              <a className="btn-floating halfway waves-effect waves-light red">
+                <i className="material-icons">favorite</i>
+              </a>
+              <a className="btn-floating waves-effect waves-light red">
                 <i className="material-icons">add</i>
               </a>
-            </div>
-            <div className="card-content">
-              <p>
-                I am a very simple card. I am good at containing small bits of
-                information. I am convenient because I require little markup to
-                use effectively.
-              </p>
+              <a
+                className="waves-effect waves-light btn modal-trigger amber-text grey darken-3"
+                data-id="0"
+                href="#modal1"
+              >
+                button
+              </a>
             </div>
           </div>
         </div>
