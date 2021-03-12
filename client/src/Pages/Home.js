@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../Context/UserContext";
 import Navbar from "../Components/Navbar";
+import SearchBar from "../Components/SearchBar";
 
 const Home = (props) => {
   const { userData } = useContext(UserContext);
@@ -14,6 +15,7 @@ const Home = (props) => {
   return (
     <div>
       <Navbar />
+      <SearchBar />
       {/* <h1>Home Page</h1>
       <h3>Hello {userData.user?.displayName}</h3>
 
