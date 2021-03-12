@@ -16,7 +16,7 @@ const auth = (req, res, next) => {
     req.user = verified.id;
     next();
   } catch (err) {
-
+    res.status(500).json({ error: err });
   }
 };
 
