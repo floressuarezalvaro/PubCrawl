@@ -13,7 +13,7 @@ const Navbar = () => {
       <nav>
         <div className="nav-wrapper">
           <a href="#!" className="brand-logo">
-            Logo
+            Pub Crawl
           </a>
           <a href="#" data-target="mobile-demo" className="sidenav-trigger">
             <i className="material-icons">menu</i>
