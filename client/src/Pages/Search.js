@@ -4,7 +4,6 @@ import Navbar from "../Components/Navbar";
 import SearchBar from "../Components/SearchBar";
 
 const Search = () => {
-  const [] = useState([]);
   return (
     <div>
       <Navbar />
