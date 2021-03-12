@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 
-const Navbar = () => {
+const NavbarLogin = () => {
   useEffect(() => {
     var elems = document.querySelectorAll(".sidenav");
     var instances = M.Sidenav.init(elems, {});
@@ -20,13 +20,10 @@ const Navbar = () => {
           </a>
           <ul className="right hide-on-med-and-down">
             <li>
-              <a href="/">Home</a>
+              <a href="/login">Login</a>
             </li>
             <li>
-              <a href="/profile">My Profile</a>
-            </li>
-            <li>
-              <a href="/profile">Log out</a>
+              <a href="/register">Register</a>
             </li>
           </ul>
         </div>
@@ -34,14 +31,14 @@ const Navbar = () => {
 
       <ul className="sidenav" id="mobile-demo">
         <li>
-          <a href="/">Home</a>
+          <a href="/login">Login</a>
         </li>
         <li>
-          <a href="/profile">My Profile</a>
+          <a href="/register">Register</a>
         </li>
       </ul>
     </div>
   );
 };
 
-export default Navbar;
+export default NavbarLogin;
