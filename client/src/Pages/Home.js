@@ -14,7 +14,7 @@ const Home = (props) => {
   return (
     <div>
       <Navbar />
-      <h1>Home Page</h1>
+      {/* <h1>Home Page</h1>
       <h3>Hello {userData.user?.displayName}</h3>
 
       <button
@@ -22,7 +22,7 @@ const Home = (props) => {
         className="btn btn-outline-primary"
       >
         Submit
-      </button>
+      </button> */}
     </div>
   );
 };
