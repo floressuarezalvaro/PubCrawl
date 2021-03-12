@@ -1,28 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
+import axios from "axios";
 
 const SearchBar = () => {
-  useEffect(() => {
-    var elems = document.querySelectorAll(".sidenav");
-    var instances = M.Sidenav.init(elems, {});
-  }, []);
+  const [search, setSearch] = useState("");
+
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const submitSearch = async (e) => {
+    e.preventDefault();
+    try {
+      const testingRoute = await axios.get(
+        `http://beermapping.com/webservice/loccity/87f85a8575cbea176e660fb72ddfcc3c/${search}&s=json`
+      );
+      console.log(testingRoute);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div>
-      <nav>
-        <div class="nav-wrapper">
-          <form>
-            <div class="input-field blue">
-              <input id="search" type="search" required />
-              <label class="label-icon" for="search">
-                <i class="material-icons">search</i>
-              </label>
-              <i class="material-icons">close</i>
-            </div>
-          </form>
-        </div>
-      </nav>
+      <form onSubmit={submitSearch}>
+        <input type="text" onChange={onChange} />
+      </form>
     </div>
   );
 };
