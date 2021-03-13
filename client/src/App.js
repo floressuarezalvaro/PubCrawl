@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Landing from "./Pages/Landing";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Profile from "./Pages/Profile";
@@ -61,7 +60,6 @@ function App() {
 
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
-            <Route path="/landing" component={Landing} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/profile" component={Profile} />
