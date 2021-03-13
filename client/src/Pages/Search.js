@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import Cards from "../Components/Cards";
+import SearchBar from "../Components/SearchBar";
 
 const Search = () => {
-  const [] = useState([]);
   return (
     <div>
-      <h1>Hello from Search Page</h1>
+      <SearchBar />
+      <Cards />
     </div>
   );
 };
