@@ -15,7 +15,9 @@ const Register = () => {
 
     try {
       const newUser = await axios.post("/users/register", form);
+
       console.log(newUser);
+      history.push("/");
     } catch (err) {
       console.log(err.response);
     }
@@ -23,6 +25,34 @@ const Register = () => {
 
   const logIn = () => {
     history.push("/");
+  };
+
+  const buttonStyle1 = {
+    color: "#fafafa",
+    backgroundColor: "#424242",
+    border: "0px",
+    borderRadius: "5px",
+    width: "150px",
+    padding: "8px 10px",
+    margin: "0",
+    position: "absolute",
+    left: "50%",
+    top: "60%",
+    transform: "translate(-50%, -50%)",
+  };
+
+  const buttonStyle2 = {
+    color: "#fafafa",
+    backgroundColor: "#bdbdbd",
+    border: "0px",
+    borderRadius: "5px",
+    width: "150px",
+    padding: "8px 10px",
+    margin: "0",
+    position: "absolute",
+    left: "50%",
+    top: "66%",
+    transform: "translate(-50%, -50%)",
   };
 
   return (
@@ -36,7 +66,13 @@ const Register = () => {
         <input onChange={onChange} type="text" name="passwordCheck" />
         <label>Display Name</label>
         <input onChange={onChange} type="text" name="displayName" />
-        <input onClick={logIn} type="submit" />
+        <input style={buttonStyle1} type="submit" value="Register" />
+        <input
+          style={buttonStyle2}
+          onClick={logIn}
+          type="submit"
+          value="Log in"
+        />
       </form>
     </div>
   );
