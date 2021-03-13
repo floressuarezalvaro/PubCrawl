@@ -10,8 +10,8 @@ const NavbarLogin = () => {
 
   return (
     <div>
-      <nav>
-        <div className="nav-wrapper">
+      <nav className="nav-extended grey darken-4">
+        <div className="nav-wrapper grey darken-4 container">
           <a href="#!" className="brand-logo">
             Pub Crawl
           </a>

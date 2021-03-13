@@ -24,9 +24,23 @@ const SearchBar = () => {
 
   return (
     <div>
-      <form onSubmit={submitSearch}>
+      {/* <form onSubmit={submitSearch}>
         <input type="text" onChange={onChange} />
-      </form>
+      </form> */}
+
+      <nav className="nav-extended grey lighten-1">
+        <div className="nav-wrapper grey lighten-1 container">
+          <form onSubmit={submitSearch}>
+            <div className="input-field">
+              <input id="search" type="search" onChange={onChange} required />
+              <label className="label-icon" for="search">
+                <i className="material-icons">search</i>
+              </label>
+              <i className="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
     </div>
   );
 };

@@ -11,6 +11,8 @@ import SavedPubCrawls from "./Pages/SavedPubCrawls";
 import Map from "./Pages/Map";
 import Home from "./Pages/Home";
 import UserContext from "./Context/UserContext";
+import NavbarLogin from "./Components/NavbarLogin";
+import Navbar from "./Components/Navbar";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -38,6 +40,7 @@ function App() {
   const logout = async () => {
     setUserData({ token: undefined, user: undefined });
     localStorage.setItem("auth-token", "");
+    console.log(logout, "success");
   };
 
   useEffect(() => {
@@ -49,13 +52,21 @@ function App() {
       <Router>
         {!userData.user ? (
           <>
+            <NavbarLogin />
+          </>
+        ) : (
+          <Navbar />
+        )}
+
+        {/* {!userData.user ? (
+          <>
             <Link to="/login">Login</Link> <Link to="/register">Register</Link>
           </>
         ) : (
           <Link to="/" onClick={logout}>
             Logout
           </Link>
-        )}
+        )} */}
 
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
