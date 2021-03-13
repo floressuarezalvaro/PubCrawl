@@ -6,7 +6,6 @@ const Search = () => {
   return (
     <div>
       <SearchBar />
-      <Cards />
     </div>
   );
 };
