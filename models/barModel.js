@@ -2,35 +2,43 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const barSchema = new Schema({
-  barName: {
+  name: {
     type: String,
     required: true,
   },
-  barRating: {
+  reviewlink: {
+    type: String,
+    required: false,
+  },
+  street: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  zip: {
+    type: String,
+    required: true,
+  },
+  overall: {
     type: Number,
     required: true,
   },
-  barAddress: {
+  country: {
     type: String,
     required: true,
   },
-  barCity: {
-    type: String,
-    required: true,
-  },
-  barState: {
-    type: String,
-    required: true,
-  },
-  barReviewLink: {
+  phone: {
     type: String,
     required: false,
   },
-  barPhone: {
-    type: String,
-    required: false,
-  },
-  barWebsite: {
+  url: {
     type: String,
     required: false,
   },
