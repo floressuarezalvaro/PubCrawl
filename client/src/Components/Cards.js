@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import "materialize-css/dist/css/materialize.min.css";
-import M from "materialize-css";
+
 
 const Cards = ({ item }) => {
-  // useEffect(() => {
-  //   var elems = document.querySelectorAll(".sidenav");
-  //   var instances = M.Sidenav.init(elems, {});
-  // }, []);
   console.log(item);
 
   const { name, city, state } = item;

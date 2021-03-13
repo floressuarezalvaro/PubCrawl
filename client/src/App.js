@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Landing from "./Pages/Landing";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
@@ -37,11 +37,11 @@ function App() {
     }
   };
 
-  const logout = async () => {
-    setUserData({ token: undefined, user: undefined });
-    localStorage.setItem("auth-token", "");
-    console.log(logout, "success");
-  };
+  // const logout = async () => {
+  //   setUserData({ token: undefined, user: undefined });
+  //   localStorage.setItem("auth-token", "");
+  //   console.log(logout, "success");
+  // };
 
   useEffect(() => {
     checkLoggedIn();
@@ -58,15 +58,6 @@ function App() {
           <Navbar />
         )}
 
-        {/* {!userData.user ? (
-          <>
-            <Link to="/login">Login</Link> <Link to="/register">Register</Link>
-          </>
-        ) : (
-          <Link to="/" onClick={logout}>
-            Logout
-          </Link>
-        )} */}
 
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
