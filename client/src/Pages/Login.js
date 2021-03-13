@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../Context/UserContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import NavbarLogin from "../Components/NavbarLogin";
 
 const Login = () => {
   const [form, setForm] = useState();
@@ -36,7 +35,6 @@ const Login = () => {
 
   return (
     <div>
-      <NavbarLogin />
       <form className="container" onSubmit={submitLoginForm}>
         <label>Email</label>
         <input onChange={onChange} type="text" name="email" />

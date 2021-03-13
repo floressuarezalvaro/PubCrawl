@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import NavbarLogin from "../Components/NavbarLogin";
 
 const Register = () => {
   const [form, setForm] = useState();
@@ -22,7 +21,6 @@ const Register = () => {
 
   return (
     <div>
-      <NavbarLogin />
       <form className="container" onSubmit={submit}>
         <label>Email</label>
         <input onChange={onChange} type="text" name="email" />
