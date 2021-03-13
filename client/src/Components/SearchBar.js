@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import Cards from "./Cards";
-// import M from "materialize-css";
 import axios from "axios";
 
 const SearchBar = () => {

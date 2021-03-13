@@ -1,12 +1,7 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import "materialize-css/dist/css/materialize.min.css";
-import M from "materialize-css";
 
 const Cards = ({ item }) => {
-  // useEffect(() => {
-  //   var elems = document.querySelectorAll(".sidenav");
-  //   var instances = M.Sidenav.init(elems, {});
-  // }, []);
   console.log(item);
 
   const { name, city, state } = item;
@@ -23,7 +18,7 @@ const Cards = ({ item }) => {
               <a className="btn-floating halfway waves-effect waves-light red">
                 <i className="material-icons">favorite</i>
               </a>
-              <a className="btn-floating waves-effect waves-light red">
+              {/* <a className="btn-floating waves-effect waves-light red">
                 <i className="material-icons">add</i>
               </a>
               <a
@@ -32,7 +27,7 @@ const Cards = ({ item }) => {
                 href="#modal1"
               >
                 button
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

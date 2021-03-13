@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import Cards from "../Components/Cards";
+import CardProfile from "../Components/CardProfile";
 import UserContext from "../Context/UserContext";
 
 const Profile = (props) => {
@@ -29,7 +29,7 @@ const Profile = (props) => {
         </div>
         <div className="row">
           <div class="col s12">
-            <Cards />
+            <CardProfile />
           </div>
         </div>
       </div>
