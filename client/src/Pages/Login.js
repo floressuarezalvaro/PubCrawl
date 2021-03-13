@@ -28,6 +28,7 @@ const Login = () => {
 
       localStorage.setItem("auth-token", data.token);
       history.push("/");
+      console.log(data.user.displayName);
     } catch (err) {
       console.log(err.response);
     }

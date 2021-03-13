@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../Context/UserContext";
-import SearchBar from "../Components/SearchBar";
+import Search from "../Pages/Search";
 
 const Home = (props) => {
   const { userData } = useContext(UserContext);
@@ -13,7 +13,7 @@ const Home = (props) => {
 
   return (
     <div>
-      <SearchBar />
+      <Search />
     </div>
   );
 };
