@@ -28,8 +28,8 @@ const SearchBar = () => {
         <input type="text" onChange={onChange} />
       </form> */}
 
-      <nav>
-        <div className="nav-wrapper grey darken-2">
+      <nav className="nav-extended grey lighten-1">
+        <div className="nav-wrapper grey lighten-1 container">
           <form onSubmit={submitSearch}>
             <div className="input-field">
               <input id="search" type="search" onChange={onChange} required />
