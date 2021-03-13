@@ -40,7 +40,7 @@ const Navbar = (props) => {
   return (
     <div>
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper grey darken-4">
           <a href="#!" className="brand-logo">
             Pub Crawl
           </a>
