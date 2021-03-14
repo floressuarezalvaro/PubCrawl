@@ -13,25 +13,19 @@ const Profile = (props) => {
   return (
     <div>
       <div className="container">
-        <div class="row">
-          <div class="col s12 m4 l4">
-            <div class="card">
-              {/* <div class="card-image">
-                <img src="https://via.placeholder.com/150" />
-              </div> */}
-              <div class="card-content">
-                <h4>{userData.user?.displayName}</h4>
-                <h6>Hometown:</h6>
-                <h6>About Me:</h6>
+        <div className="row">
+          <div className="col s6 m4 l4">
+            <div className="card">
+              <div className="card-content">
+                <div className="card-image">
+                  <img src="https://via.placeholder.com/150" />
+                </div>
+                <h6>{userData.user?.displayName}</h6>
               </div>
             </div>
           </div>
         </div>
-        <div className="row">
-          <div class="col s12">
-            <CardProfile />
-          </div>
-        </div>
+        <h4>favorites</h4>
       </div>
     </div>
   );

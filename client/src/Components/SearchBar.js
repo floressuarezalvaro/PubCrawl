@@ -42,7 +42,7 @@ const SearchBar = () => {
           </form>
         </div>
       </nav>
-      <ul className="list-group">
+      <ul className="list-group container">
         {barArray.map((item, index) => (
           <Cards item={item} key={index} />
         ))}

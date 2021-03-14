@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Profile from "./Pages/Profile";
@@ -56,7 +56,6 @@ function App() {
         ) : (
           <Navbar />
         )}
-
 
         <UserContext.Provider value={{ userData, setUserData }}>
           <Switch>
