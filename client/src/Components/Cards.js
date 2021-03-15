@@ -53,6 +53,9 @@ const Cards = ({ item }) => {
     // reviewlink,
     overall,
   } = item;
+
+  const urlLink = "https://" + url;
+
   return (
     <div>
       <div className="row" id="barList">
@@ -83,7 +86,7 @@ const Cards = ({ item }) => {
                     <li className="#city-state-zip">{country}</li>
                     <li className="phone">{phone}</li>
                     <li>
-                      <a className="url" href={url}>
+                      <a className="url" href={urlLink}>
                         {url}
                       </a>
                     </li>
