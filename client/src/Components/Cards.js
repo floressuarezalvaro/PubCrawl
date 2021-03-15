@@ -97,14 +97,14 @@ const Cards = ({ item }) => {
                       </a>
                     </li> */}
                   </ul>
-
-                  {/* <a className="btn-floating halfway waves-effect waves-light red" onClick={console.log("clicked")}>
+                  <button
+                    data-target={id}
+                    onClick={handleModalSubmit}
+                    className="btn-floating halfway waves-effect waves-light red"
+                  >
                     <i id={id} className="material-icons">
                       favorite
                     </i>
-                  </a> */}
-                  <button data-target={id} onClick={handleModalSubmit}>
-                    Click Me
                   </button>
                 </div>
               </div>
