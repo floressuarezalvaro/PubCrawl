@@ -1,10 +1,20 @@
 import axios from "axios";
 
 export default {
-  saveBar: function () {
-    return axios.post("/bars/newbar");
+  saveBar: function (apiResults) {
+    console.log(apiResults);
+    return axios({
+      method: "POST",
+      url: "/bars/newbar",
+      data: apiResults,
+      headers: { "Content-Type": "application/json" },
+    });
   },
   getBars: function () {
-    return axios.get("/bars/getbars");
+    return axios({
+      method: "GET",
+      url: "/bars/getbars",
+      headers: { "Content-Type": "application/json" },
+    });
   },
 };
