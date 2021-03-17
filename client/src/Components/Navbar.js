@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 
-
 const Navbar = (props) => {
   useEffect(() => {
     var elems = document.querySelectorAll(".sidenav");
