@@ -17,6 +17,8 @@ app.use("/bars", require("./routes/apiRoutes"));
 
 app.use("/users", require("./routes/userRoutes"));
 
+// app.use("/register", require("./routes/confirmRoute"));
+
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
