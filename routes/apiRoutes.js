@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const barsController = require("../controllers/BarsController");
+const auth = require("../middleware/auth");
+const { newBar, getBars } = require("../controllers/BarsController");
 
-router.route("/newbar").post(barsController.newBar);
-router.route("/getbars").get(barsController.getBars);
+router.post("/newbar", newBar);
+router.get("/getbars", getBars);
 
 module.exports = router;
