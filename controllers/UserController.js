@@ -2,10 +2,9 @@ require("dotenv").config();
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-// const Confirm = require("../models/confirmModel");
-// const crypto = require("crypto");
-// const nodemailer = require("nodemailer");
-// const { connect } = require("mongoose");
+const Confirm = require("../models/confirmModel");
+const crypto = require("crypto");
+const nodemailer = require("nodemailer");
 
 module.exports = {
   register: async (req, res) => {
@@ -43,51 +42,45 @@ module.exports = {
         displayName,
       });
 
+      const confirmationToken = new Confirm({
+        token: crypto.randomBytes(10).toString("hex"),
+        authorId: newUser._id,
+      });
+
+      console.log(confirmationToken);
+
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "teampubcrawl@gmail.com",
+          pass: "teampubcrawl001",
+        },
+      });
+
+      const mailOptions = {
+        from: "teampubcrawl@gmail.com",
+        to: newUser.email,
+        subject: " Thanks for signing up",
+        text: `Click to confirm http://localhost:3000/confirm_token/${confirmationToken.token}`,
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(
+            `Email was sent with: http://localhost:5000/confirm_token/${confirmationToken.token}`
+          );
+        }
+      });
+
+      await confirmationToken.save();
       const savedUser = await newUser.save();
       res.json(savedUser);
     } catch (err) {
       res.status(500).json({ msg: err });
     }
   },
-
-  //     const confirmationToken = new Confirm({
-  //       token: crypto.randomBytes(20).toString("hex"),
-  //       authorId: newUser._id,
-  //     });
-  //     console.log(confirmationToken);
-
-  //     const transporter = nodemailer.createTransport({
-  //       service: "gmail",
-  //       auth: {
-  //         user: "teampubcrawl@gmail.com",
-  //         pass: "teampubcrawl0100",
-  //       },
-  //     });
-
-  //     const mailOptions = {
-  //       from: "teampubcrawl@gmail.com",
-  //       to: newUser.email,
-  //       subect: "Thanks for signing up",
-  //       text: `Click to confirm http://localhost:3000/confirm_token/${confirmationToken.token}`,
-  //     };
-
-  //     transporter.sendMail(mailOptions, (error, info) => {
-  //       if (error) {
-  //         console.log(error);
-  //       } else {
-  //         console.log(
-  //           `Email was sent with http://localhost:5000/confirm_token/${confirmationToken.token}`
-  //         );
-  //       }
-  //     });
-
-  //     await confirmationToken.save();
-  //     const savedUser = await newUser.save();
-  //     res.json(savedUser);
-  //   } catch (err) {
-  //     res.status(500).json({ msg: err });
-  //   }
-  // },
 
   login: async (req, res) => {
     try {
@@ -100,13 +93,13 @@ module.exports = {
       const user = await User.findOne({ email: email });
 
       if (!user) {
-        res.status(400).json({ msg: "user doesn't exist" });
+        res.status(400).json({ msg: "User downs exist" });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
-        res.status(400).json({ msg: "password was incorrect" });
+        res.status(400).json({ msg: "this was an incorrect password" });
       }
 
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
@@ -118,7 +111,7 @@ module.exports = {
         user: {
           id: user._id,
           displayName: user.displayName,
-          // confirmed: user.confirmed,
+          confirmed: user.confirmed,
         },
       });
     } catch (err) {
@@ -129,7 +122,6 @@ module.exports = {
   getUser: async (req, res) => {
     try {
       const user = await User.findById(req.user);
-
       res.json({
         displayName: user.displayName,
         id: user._id,
@@ -138,12 +130,13 @@ module.exports = {
       res.send(err.response);
     }
   },
-  // deleteUser: async (req, res) => {
-  //   try {
-  //     const deletedUser = await User.findByIdAndDelete(req.user);
-  //     res.json(deletedUser);
-  //   } catch (err) {
-  //     res.send({ error: err });
-  //   }
-  // },
+
+  deleteUser: async (req, res) => {
+    try {
+      const deletedUser = await User.findByIdAndDelete(req.user);
+      res.json(deletedUser);
+    } catch (err) {
+      res.send({ error: err });
+    }
+  },
 };
