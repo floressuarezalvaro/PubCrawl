@@ -1,5 +1,5 @@
 require("dotenv").config();
-const User = require("../models/userModel")
+const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const Confirm = require("../models/confirmModel");
@@ -61,7 +61,7 @@ module.exports = {
     const mailOptions = {
       from: "teampubcrawl@gmail.com",
       to: newUser.email,
-      subject: "Thanks for signing up",
+      subject: "Thanks for signing up with PubCrawl",
       text: `Click to confirm http://localhost:3000/confirm_token/${confirmationToken.token}`,
     };
       
@@ -95,13 +95,13 @@ module.exports = {
       const user = await User.findOne({ email: email });
 
       if (!user) {
-        res.status(400).json({ msg: "user doesn't exist" });
+        res.status(400).json({ msg: "User downs exist" });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
-        res.status(400).json({ msg: "password was incorrect" });
+        res.status(400).json({ msg: "this was an incorrect password" });
       }
 
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {

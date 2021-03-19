@@ -4,8 +4,6 @@ import M from "materialize-css";
 import API from "../utils/API";
 
 const Cards = ({ item }) => {
-  console.log(item.id);
-
   useEffect(() => {
     var elems = document.querySelectorAll(".modal");
     var instances = M.Modal.init(elems, {});
@@ -13,7 +11,7 @@ const Cards = ({ item }) => {
 
   function handleModalSubmit(event) {
     event.preventDefault();
-    console.log({
+    const apiResults = API.saveBar({
       name,
       street,
       city,
@@ -24,23 +22,10 @@ const Cards = ({ item }) => {
       url,
       overall,
     });
-    // API.saveBar({
-    //   name: { name },
-    //   street: { street },
-    //   city: { city },
-    //   state: { state },
-    //   zip: { zip },
-    //   country: { country },
-    //   phone: { phone },
-    //   url: { url },
-    //   overall: { overall },
-    // })
-    API.getBars()
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    return apiResults;
   }
 
-  const {
+  let {
     id,
     name,
     street,
