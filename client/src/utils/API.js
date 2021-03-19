@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
   saveBar: function (apiResults) {
-    console.log(apiResults);
     return axios({
       method: "POST",
       url: "/bars/newbar",

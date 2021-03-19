@@ -16,7 +16,6 @@ const SearchBar = () => {
       const searchRes = await axios.get(
         `http://beermapping.com/webservice/loccity/87f85a8575cbea176e660fb72ddfcc3c/${search}&s=json`
       );
-      console.log(searchRes);
       setbarArray(searchRes.data);
     } catch (err) {
       console.log(err);
@@ -25,10 +24,6 @@ const SearchBar = () => {
 
   return (
     <div>
-      {/* <form onSubmit={submitSearch}>
-        <input type="text" onChange={onChange} />
-      </form> */}
-
       <nav className="nav-extended grey lighten-1">
         <div className="nav-wrapper grey lighten-1 container">
           <form onSubmit={submitSearch}>

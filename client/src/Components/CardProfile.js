@@ -1,24 +1,65 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "materialize-css/dist/css/materialize.min.css";
+import M from "materialize-css";
+import API from "../utils/API";
 
-const CardProfile = () => {
+const CardProfile = ({ item }) => {
+  useEffect(() => {
+    var elems = document.querySelectorAll(".modal");
+    var instances = M.Modal.init(elems, {});
+  }, []);
+  console.log(item);
+
+  let {
+    _id,
+    name,
+    street,
+    city,
+    state,
+    zip,
+    country,
+    phone,
+    url,
+    overall,
+  } = item;
+
+  const urlLink = "https://" + url;
+
   return (
     <div>
-      <div class="row">
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/150" />
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>
-                I am a very simple card. I am good at containing small bits of
-                information. I am convenient because I require little markup to
-                use effectively.
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
+      <div className="row" id="barList">
+        <div className="col s12 m6 l6">
+          <div className="card grey lighten-5">
+            <div className="card-content grey-text">
+              <h5 className="#bar-name">{name}</h5>
+
+              <div className="card-action"></div>
+
+              {/* <!-- Modal Trigger --> */}
+              <button data-target={_id} className="btn modal-trigger">
+                details
+              </button>
+
+              {/* <!-- Modal Structure --> */}
+              <div id={_id} className="modal">
+                <div className="modal-content">
+                  <h5 className="#bar-name">{name}</h5>
+                  <ul>
+                    <li className="#street-name">{street}</li>
+                    <li className="#city-state-zip">
+                      {city}, {state}, {zip}
+                    </li>
+                    <li className="#city-state-zip">{country}</li>
+                    <li className="phone">{phone}</li>
+                    <li>
+                      <a className="url" href={urlLink}>
+                        {url}
+                      </a>
+                    </li>
+                    <li className="overall">Rating: {overall}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
