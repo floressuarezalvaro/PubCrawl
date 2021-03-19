@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const barSchema = new Schema({
   name: {
     type: String,
-    required: false,
+    required: true,
   },
   reviewlink: {
     type: String,
@@ -12,19 +12,19 @@ const barSchema = new Schema({
   },
   street: {
     type: String,
-    required: false,
+    required: true,
   },
   city: {
     type: String,
-    required: false,
+    required: true,
   },
   state: {
     type: String,
-    required: false,
+    required: true,
   },
   zip: {
     type: String,
-    required: false,
+    required: true,
   },
   overall: {
     type: Number,
@@ -32,16 +32,19 @@ const barSchema = new Schema({
   },
   country: {
     type: String,
-    required: false,
+    required: true,
   },
   phone: {
     type: String,
-    required: false,
+    required: true,
   },
   url: {
     type: String,
-    required: false,
+    required: true,
   },
+  // savedBy:{
+  //   type:
+  // }
 });
 
 const Bar = mongoose.model("Bar", barSchema);
