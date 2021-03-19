@@ -1,15 +1,26 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import "materialize-css/dist/css/materialize.min.css";
 import { useHistory } from "react-router-dom";
 import CardProfile from "../Components/CardProfile";
 import UserContext from "../Context/UserContext";
+import API from "../utils/API";
 
-const Profile = (props) => {
+const Profile = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
+  const [favArray, setFavArray] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const favBars = await API.getBars();
+      setFavArray(favBars.data);
+    })();
+  }, []);
 
   useEffect(() => {
     if (!userData.user);
   }, [userData.user, history]);
+
   return (
     <div>
       <div className="container">
@@ -26,6 +37,12 @@ const Profile = (props) => {
           </div>
         </div>
         <h4>favorites</h4>
+
+        <ul className="list-group container">
+          {favArray.map((item, index) => (
+            <CardProfile item={item} key={index} />
+          ))}
+        </ul>
       </div>
     </div>
   );
