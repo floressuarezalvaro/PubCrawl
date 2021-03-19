@@ -35,7 +35,6 @@ const Cards = ({ item }) => {
     country,
     phone,
     url,
-    // reviewlink,
     overall,
   } = item;
 
@@ -50,9 +49,6 @@ const Cards = ({ item }) => {
               <h5 className="#bar-name">{name}</h5>
 
               <div className="card-action"></div>
-              {/* <a className="btn-floating halfway waves-effect waves-light red">
-                <i className="material-icons">favorite</i>
-              </a> */}
 
               {/* <!-- Modal Trigger --> */}
               <button data-target={id} className="btn modal-trigger">
@@ -76,11 +72,6 @@ const Cards = ({ item }) => {
                       </a>
                     </li>
                     <li className="overall">Rating: {overall}</li>
-                    {/* <li>
-                      <a className="reviewlink" href={reviewlink}>
-                        {reviewlink}
-                      </a>
-                    </li> */}
                   </ul>
                   <button
                     data-target={id}
