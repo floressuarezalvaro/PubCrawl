@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const Confirm = require("../models/confirmModel");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
+const { connect } = require("mongoose");
 
 module.exports = {
   register: async (req, res) => {
@@ -41,42 +42,43 @@ module.exports = {
         password: passwordHash,
         displayName,
       });
+// we start here
 
       const confirmationToken = new Confirm({
-        token: crypto.randomBytes(10).toString("hex"),
+        token: crypto.randomBytes(20).toString("hex"),
         authorId: newUser._id,
       });
-
       console.log(confirmationToken);
-
+      
       const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: "teampubcrawl@gmail.com",
-          pass: "teampubcrawl001",
-        },
-      });
+      service: "gmail",
+      auth: {
+       user: "teampubcrawl@gmail.com",
+       pass: "teampubcrawl001", 
+      },
+    });
 
-      const mailOptions = {
-        from: "teampubcrawl@gmail.com",
-        to: newUser.email,
-        subject: " Thanks for signing up",
-        text: `Click to confirm http://localhost:3000/confirm_token/${confirmationToken.token}`,
-      };
-
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.log(error);
-        } else {
+    const mailOptions = {
+      from: "teampubcrawl@gmail.com",
+      to: newUser.email,
+      subject: "Thanks for signing up with PubCrawl",
+      text: `Click to confirm http://localhost:3000/confirm_token/${confirmationToken.token}`,
+    };
+      
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
           console.log(
-            `Email was sent with: http://localhost:5000/confirm_token/${confirmationToken.token}`
-          );
-        }
-      });
-
+          `Email was sent with http://localhost:5000/confirm_token/${confirmationToken.token}`
+        );
+      }
+    });
+    
+ 
       await confirmationToken.save();
       const savedUser = await newUser.save();
-      res.json(savedUser);
+      res.json(savedUser)
     } catch (err) {
       res.status(500).json({ msg: err });
     }
@@ -108,10 +110,10 @@ module.exports = {
 
       res.json({
         token,
-        user: {
-          id: user._id,
+        user: { 
+          id: user._id, 
           displayName: user.displayName,
-          confirmed: user.confirmed,
+          confirmed: user.confirmed, 
         },
       });
     } catch (err) {
