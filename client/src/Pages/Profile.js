@@ -12,12 +12,12 @@ const Profile = () => {
   
 async function deleteFromFav (event){
     event.preventDefault();
-    const _id = event.target.getAttribute("data-target")
-    console.log(_id)
+    const index = event.target.getAttribute("data-index");
+    const _id = favArray[index]._id
     const apiDeletedBar = await API.deleteBars(_id);
-    const newRes = favArray.filter(item => item._id != _id) 
-    setFavArray(newRes) 
-    
+    const results = [...favArray]
+    results.splice(index, 1)
+    setFavArray(results)
 }
 
   useEffect(() => {
@@ -51,7 +51,7 @@ async function deleteFromFav (event){
 
         <ul className="list-group container">
           {favArray.map((item, index) => (
-            <CardProfile item={item} key={index} deleteFromFav={deleteFromFav} />
+            <CardProfile item={item} key={index} index={index} deleteFromFav={deleteFromFav} />
           ))}
         </ul>
       </div>

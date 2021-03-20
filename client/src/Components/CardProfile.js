@@ -5,7 +5,7 @@ import API from "../utils/API";
 import { useHistory } from "react-router-dom";
 
 
-const CardProfile = ({ item, deleteFromFav }) => {
+const CardProfile = ({ item, index, deleteFromFav }) => {
   const history = useHistory();
   useEffect(() => {
     var elems = document.querySelectorAll(".modal");
@@ -57,12 +57,11 @@ const CardProfile = ({ item, deleteFromFav }) => {
                 Update
               </button>
               <button
-                data-target={_id}
+                data-index={index}
                 onClick={deleteFromFav}
                 // className="btn-floating halfway waves-effect waves-light red"
               >
-                  Remove
-                
+                  Remove 
               </button>
 
               {/* <!-- Modal Structure --> */}
