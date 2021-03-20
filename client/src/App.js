@@ -13,6 +13,8 @@ import UserContext from "./Context/UserContext";
 import NavbarLogin from "./Components/NavbarLogin";
 import Navbar from "./Components/Navbar";
 import ConfirmAccount from "./Pages/ConfirmAccount"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   const [userData, setUserData] = useState({
@@ -49,6 +51,7 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer/>
       <Router>
         {!userData.user ? (
           <>
