@@ -15,4 +15,10 @@ module.exports = {
       }
     });
   },
+  deleteBars: function (req, res) {
+    db.Bar.findById({ _id: req.params.id })
+      .then((dbModel) => dbModel.remove())
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
 };
