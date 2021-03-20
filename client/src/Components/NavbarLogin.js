@@ -13,8 +13,8 @@ const NavbarLogin = () => {
       <div className="navbar-fixed">
         <nav className="nav-extended grey darken-4">
           <div className="nav-wrapper grey darken-4 container">
-            <a href="#!" className="brand-logo">
-              Pub Crawl
+            <a href="/" className="brand-logo">
+              PubSpace
             </a>
             <a href="#" data-target="mobile-demo" className="sidenav-trigger">
               <i className="material-icons">menu</i>
