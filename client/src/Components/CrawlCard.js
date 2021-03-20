@@ -3,7 +3,7 @@ import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 import API from "../utils/API";
 
-const Crawl = ({ item }) => {
+const CrawlCard = ({ item }) => {
   useEffect(() => {
     var elems = document.querySelectorAll("select");
     var instances = M.FormSelect.init(elems, {});
@@ -42,12 +42,6 @@ const Crawl = ({ item }) => {
 
   return (
     <div>
-      {/* <li>{name}</li> */}
-      {/* <ul value={id}>{name}</ul> */}
-      {/* <label>Browser Select</label>
-      <select className="browser-default">
-        <option value={id.value}>{name.value}</option>
-      </select> */}
       <select className="browser-default">
         <option value="" disabled selected>
           Choose your option
@@ -58,4 +52,4 @@ const Crawl = ({ item }) => {
   );
 };
 
-export default Crawl;
+export default CrawlCard;
