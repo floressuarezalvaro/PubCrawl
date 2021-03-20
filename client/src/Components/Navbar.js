@@ -54,7 +54,7 @@ const Navbar = (props) => {
               <a href="/search">Search</a>
             </li>
             <li>
-              <a href="/itinerary">PubCrawl</a>
+              <a href="/pubcrawl">PubCrawl</a>
             </li>
             <li>
               <a href="/login" onClick={logout}>
@@ -76,7 +76,7 @@ const Navbar = (props) => {
           <a href="/search">Search</a>
         </li>
         <li>
-          <a href="/itinerary">PubCrawl</a>
+          <a href="/pubcrawl">PubCrawl</a>
         </li>
         <a href="/login" onClick={logout}>
           Log out
