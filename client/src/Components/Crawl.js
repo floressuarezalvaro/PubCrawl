@@ -44,16 +44,16 @@ const Crawl = ({ item }) => {
     <div>
       {/* <li>{name}</li> */}
       {/* <ul value={id}>{name}</ul> */}
-      <label>Browser Select</label>
+      {/* <label>Browser Select</label>
       <select className="browser-default">
         <option value={id.value}>{name.value}</option>
-      </select>
-      {/* <select className="browser-default">
+      </select> */}
+      <select className="browser-default">
         <option value="" disabled selected>
           Choose your option
         </option>
         <option value={id}>{name}</option>
-      </select> */}
+      </select>
     </div>
   );
 };
