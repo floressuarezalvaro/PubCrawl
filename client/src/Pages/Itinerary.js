@@ -1,9 +1,16 @@
 import React from "react";
+import SearchCrawl from "../Components/SearchCrawl";
 
 const Itinerary = () => {
   return (
     <div>
-      <h1>Hello from Itinerary Page</h1>
+      <div className="row container">
+        <div className="col s12 m12 l12">
+          <div className="card-panel teal">
+            <SearchCrawl />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
