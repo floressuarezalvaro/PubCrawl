@@ -16,6 +16,7 @@ import ConfirmAccount from "./Pages/ConfirmAccount"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
+
 function App() {
   const [userData, setUserData] = useState({
     user: undefined,
@@ -71,8 +72,7 @@ function App() {
             <Route path="/savedpubcrawls" component={SavedPubCrawls} />
             <Route path="/map" component={Map} />
             <Route path="/confirm_token/:token" component={ConfirmAccount} />
-            <Route path="/" >
-            
+            <Route path="/">
               <Home component={Home} />
             </Route>
           </Switch>

@@ -40,21 +40,21 @@ const Navbar = (props) => {
     <div>
       <nav className="nav-extended grey darken-4">
         <div className="nav-wrapper grey darken-4 container">
-          <a href="#!" className="brand-logo">
-            Pub Crawl
+          <a href="/" className="brand-logo">
+            PubSpace
           </a>
-          <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+          <a href="/" data-target="mobile-demo" className="sidenav-trigger">
             <i className="material-icons">menu</i>
           </a>
           <ul className="right hide-on-med-and-down">
             <li>
-              <a href="/">Home</a>
+              <a href="/profile">Profile</a>
             </li>
             <li>
-              <a href="/profile">My Profile</a>
+              <a href="/search">Search</a>
             </li>
             <li>
-              <a href="/search">Search Results</a>
+              <a href="/itinerary">PubCrawl</a>
             </li>
             <li>
               <a href="/login" onClick={logout}>
@@ -66,14 +66,17 @@ const Navbar = (props) => {
       </nav>
 
       <ul className="sidenav" id="mobile-demo">
-        <li>
+        {/* <li>
           <a href="/">Home</a>
+        </li> */}
+        <li>
+          <a href="/profile">Profile</a>
         </li>
         <li>
-          <a href="/profile">My Profile</a>
+          <a href="/search">Search</a>
         </li>
         <li>
-          <a href="/search">Search Results</a>
+          <a href="/itinerary">PubCrawl</a>
         </li>
         <a href="/login" onClick={logout}>
           Log out
