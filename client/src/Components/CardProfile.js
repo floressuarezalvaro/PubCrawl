@@ -4,7 +4,6 @@ import M from "materialize-css";
 import API from "../utils/API";
 import { useHistory } from "react-router-dom";
 
-
 const CardProfile = ({ item, index, deleteFromFav }) => {
   const history = useHistory();
   useEffect(() => {
@@ -28,6 +27,11 @@ const CardProfile = ({ item, index, deleteFromFav }) => {
 
   const urlLink = "https://" + url;
 
+  const buttonStyleProfile = {
+    backgroundColor: "#24a3a0",
+    color: "#ffffff",
+    marginRight: "20px",
+  };
 
   return (
     <div>
@@ -53,15 +57,21 @@ const CardProfile = ({ item, index, deleteFromFav }) => {
               <div className="card-action"></div>
 
               {/* <!-- Modal Trigger --> */}
-              <button data-target={_id} className="btn modal-trigger">
+              <button
+                style={buttonStyleProfile}
+                data-target={_id}
+                className="btn modal-trigger"
+              >
                 Update
               </button>
               <button
+                style={buttonStyleProfile}
+                className="btn modal-trigger"
                 data-index={index}
                 onClick={deleteFromFav}
                 // className="btn-floating halfway waves-effect waves-light red"
               >
-                  Remove 
+                Remove
               </button>
 
               {/* <!-- Modal Structure --> */}
