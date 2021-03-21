@@ -15,13 +15,16 @@ const AddNewBar = () => {
 
     try {
       const newUserAddedBar = await API.saveBar(addNewBarForm);
-      console.log(newUserAddedBar);
       history.push("/profile");
     } catch (err) {
       console.log("Couldn't save new Bar");
     }
   };
-
+  const buttonStyleProfile = {
+    backgroundColor: "#24a3a0",
+    color: "#ffffff",
+    marginRight: "20px",
+  };
   return (
     <div>
       <form className="container" onSubmit={submit}>
@@ -44,7 +47,7 @@ const AddNewBar = () => {
         <input onChange={onChange} type="text" name="url" />
         <label>Overall Rating</label>
         <input onChange={onChange} type="text" name="rating" />
-        <input type="submit" value="Save Bar" />
+        <input style={buttonStyleProfile} type="submit" value="Save Bar" />
       </form>
     </div>
   );
