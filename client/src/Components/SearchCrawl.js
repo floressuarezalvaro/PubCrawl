@@ -26,10 +26,7 @@ const SearchCrawl = ({ item }) => {
 
   useEffect(() => {
     var elems = document.querySelectorAll("select");
-    var instances = M.FormSelect.init(elems, {});
-
-    var elems = document.querySelectorAll(".modal");
-    var instances = M.Modal.init(elems, {});
+    M.FormSelect.init(elems, {});
   }, []);
 
   // let {
