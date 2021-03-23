@@ -12,7 +12,7 @@ const Cards = ({ item }) => {
 
   function handleModalSubmit(event) {
     event.preventDefault();
-    const apiResults = API.saveBar({
+    API.saveBar({
       name,
       street,
       city,

@@ -8,7 +8,7 @@ const Navbar = (props) => {
     M.Sidenav.init(elems, {});
   }, []);
 
-  const [setUserData] = useState({
+  const [userData, setUserData] = useState({
     user: undefined,
     token: undefined,
   });
