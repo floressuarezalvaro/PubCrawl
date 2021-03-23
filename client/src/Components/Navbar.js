@@ -5,10 +5,10 @@ import M from "materialize-css";
 const Navbar = (props) => {
   useEffect(() => {
     var elems = document.querySelectorAll(".sidenav");
-    var instances = M.Sidenav.init(elems, {});
+    M.Sidenav.init(elems, {});
   }, []);
 
-  const [userData, setUserData] = useState({
+  const [setUserData] = useState({
     user: undefined,
     token: undefined,
   });

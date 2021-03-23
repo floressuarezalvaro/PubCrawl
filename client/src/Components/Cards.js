@@ -6,7 +6,7 @@ import API from "../utils/API";
 const Cards = ({ item }) => {
   useEffect(() => {
     var elems = document.querySelectorAll(".modal");
-    var instances = M.Modal.init(elems, {});
+    M.Modal.init(elems, {});
   }, []);
 
   function handleModalSubmit(event) {
@@ -22,7 +22,6 @@ const Cards = ({ item }) => {
       url,
       overall,
     });
-    return apiResults;
   }
 
   let {
