@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css";
 import API from "../utils/API";
+import { toast } from "react-toastify";
 
 const Cards = ({ item }) => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const Cards = ({ item }) => {
       url,
       overall,
     });
+    toast.success("Bar Added");
   }
 
   let {
