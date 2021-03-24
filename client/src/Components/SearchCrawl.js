@@ -15,9 +15,7 @@ const SearchCrawl = ({ item }) => {
   const submitSearch = async (e) => {
     e.preventDefault();
     try {
-      const searchRes = await axios.get(
-        `http://beermapping.com/webservice/loccity/87f85a8575cbea176e660fb72ddfcc3c/${search}&s=json`
-      );
+      const searchRes = await axios.put(`/local_bars`, { search: search });
       setbarArray(searchRes.data);
     } catch (err) {
       console.log(err);
