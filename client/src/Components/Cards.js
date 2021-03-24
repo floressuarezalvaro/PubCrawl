@@ -62,7 +62,7 @@ const Cards = ({ item }) => {
               {/* <!-- Modal Structure --> */}
               <div id={id} className="modal">
                 <div className="modal-content">
-                  <h5 className="#bar-name">{name}</h5>
+                  <h5 className="#bar-name grey-text text-darken-4">{name}</h5>
                   <ul>
                     <li className="#street-name">{street}</li>
                     <li className="#city-state-zip">
