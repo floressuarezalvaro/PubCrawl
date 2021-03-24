@@ -30,14 +30,16 @@ const SearchCrawl = ({ item }) => {
   }, []);
 
   return (
-    <div>
-      <nav className="nav-extended grey lighten-1">
-        <div className="nav-wrapper grey lighten-1 container">
+    <div className="white">
+      <nav className="nav-extended white">
+        <div className="nav-wrapper white container">
           <form onSubmit={submitSearch}>
             <div className="input-field">
               <input id="search" type="search" onChange={onChange} required />
               <label className="label-icon" for="search">
-                <i className="material-icons">search</i>
+                <i className="material-icons green-text text-lighten-4">
+                  search
+                </i>
               </label>
               <i className="material-icons">close</i>
             </div>
@@ -73,7 +75,10 @@ const SearchCrawl = ({ item }) => {
       </select>
 
       {/* <!-- Modal Trigger --> */}
-      <a className="waves-effect waves-light btn modal-trigger" href="#modal1">
+      <a
+        className="waves-effect waves-light btn modal-trigger grey lighten-1"
+        href="#modal1"
+      >
         Map
       </a>
 

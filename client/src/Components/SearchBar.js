@@ -23,13 +23,15 @@ const SearchBar = () => {
 
   return (
     <div>
-      <nav className="nav-extended grey lighten-1">
-        <div className="nav-wrapper grey lighten-1 container">
+      <nav className="nav-extended white">
+        <div className="nav-wrapper white container">
           <form onSubmit={submitSearch}>
             <div className="input-field">
               <input id="search" type="search" onChange={onChange} required />
-              <label className="label-icon" htmlFor="search">
-                <i className="material-icons">search</i>
+              <label className="label-icon " htmlFor="search">
+                <i className="material-icons green-text text-lighten-4">
+                  search
+                </i>
               </label>
               <i className="material-icons">close</i>
             </div>

@@ -67,8 +67,8 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form className="container" onSubmit={submitLoginForm}>
+    <div className="green lighten-5">
+      <form className="container green lighten-5" onSubmit={submitLoginForm}>
         <label>Email</label>
         <input onChange={onChange} type="text" name="email" />
         <label>Password</label>
