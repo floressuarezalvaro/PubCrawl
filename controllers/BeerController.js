@@ -13,15 +13,20 @@ module.exports = {
   },
   coordinateBars: async (req, res) => {
     const barArray = req.body.idArray;
-    console.log(barArray);
+    console.log(typeof barArray);
+    if (!barArray || barArray.length === 0) {
+      return res.status(400).json([]);
+    }
     Promise.all(barArray.map((id) => getCoordinates(id)))
       .then((results) => {
         let coordinatesArray = [];
         results.forEach((item) => {
           console.log(item.data);
-          coordinatesArray.push(item.data);
-          res.json(coordinatesArray);
+          if (item.data[0].lat && item.data[0].lng) {
+            coordinatesArray.push(item.data[0]);
+          }
         });
+        res.json(coordinatesArray);
       })
       .catch((err) => {
         res.status(400).json([]);

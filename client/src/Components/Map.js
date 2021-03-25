@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import axios from "axios";
 
@@ -18,7 +18,22 @@ const Map = (props) => {
   //     data: { idArray: props.searchId },
   //   }).then((res) => console.log(res.data));
   // }, [props.searchId]);
-  console.log(props.coordinate);
+  const markers = useMemo(
+    () =>
+      props.coordinate.length === 0
+        ? null
+        : props.coordinate.map((c, index) => (
+            <Marker
+              key={index}
+              longitude={parseFloat(c.lng)}
+              latitude={parseFloat(c.lat)}
+            >
+              <div>{c.name}</div>
+            </Marker>
+          )),
+    [props.coordinate]
+  );
+
   return (
     <div>
       <ReactMapGL
@@ -29,7 +44,9 @@ const Map = (props) => {
         onViewportChange={(viewport) => {
           setViewport(viewport);
         }}
-      ></ReactMapGL>
+      >
+        {markers}
+      </ReactMapGL>
     </div>
   );
 };
