@@ -100,15 +100,15 @@ const SearchCrawl = ({ item }) => {
       </select>
 
       {/* <!-- Modal Trigger --> */}
-      <a
+      {/* <a
         className="waves-effect waves-light btn modal-trigger grey lighten-1"
         href="#modal1"
       >
         Map
-      </a> */}
+      </a>  */}
 
       <button onClick={onClick} data-target="modal1" class="btn modal-trigger">
-        Modal
+        Map
       </button>
       {/* <!-- Modal Structure --> */}
       <div id="modal1" className="modal">
