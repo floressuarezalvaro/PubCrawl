@@ -13,7 +13,10 @@ const Map = (props) => {
               longitude={parseFloat(c.lng)}
               latitude={parseFloat(c.lat)}
             >
-              <div>{c.name}</div>
+              <div className="teal-text text-darken-1">{c.name}</div>
+              <button className="marker-btn">
+                <img src="/marker-stroked-15.svg" />
+              </button>
             </Marker>
           )),
     [props.coordinate]
@@ -22,7 +25,7 @@ const Map = (props) => {
   const [viewport, setViewport] = useState({
     latitude: 37.7749,
     longitude: -122.4194,
-    width: "50vw",
+    width: "70vw",
     height: "50vh",
     zoom: 10,
   });
